@@ -31,52 +31,52 @@ const Users = () => {
         <>
             {handlePhrase(users.length)}
 
-            <table className="table table-striped table-hover">
+            {users.length > 0 &&
 
-                {users.length !==0 ?
-                    <thead>
-                    <tr>
-                        {['Имя', 'Качества', 'Профессия', 'Встретился, раз', 'Оценка', '']
-                            .map(i => <th scope="col" key={i}> {i} </th>)}
-                    </tr>
-                    </thead>
-                :''}
+                <table className="table table-striped table-hover">
 
-                <tbody>
-                {users.map((user) => {
-                    return (
-                        <tr key={user._id}>
-                            <td>{user.name}</td>
-
-                            <td>
-                                {user.qualities.map(qualitie => (
-                                    <span
-                                        className={`badge bg-${qualitie.color} m-1`}
-                                        key={user._id+qualitie._id}
-                                    >
-                                        {qualitie.name}
-                                    </span>)
-                                )}
-                            </td>
-
-                            <td>{user.profession.name}</td>
-                            <td>{user.completedMeetings}</td>
-                            <td>{user.rate}/5</td>
-
-                            <td>
-                                <button
-                                className="btn btn-danger"
-                                onClick={()=>handleDelete(user._id)}
-                                >
-                                Удалить
-                                </button>
-                            </td>
-
+                        <thead>
+                        <tr>
+                            {['Имя', 'Качества', 'Профессия', 'Встретился, раз', 'Оценка', '']
+                                .map(i => <th scope="col" key={i}> {i} </th>)}
                         </tr>
-                    )
-                })}
-                </tbody>
-            </table>
+                        </thead>
+
+                    <tbody>
+                    {users.map((user) => {
+                        return (
+                            <tr key={user._id}>
+                                <td>{user.name}</td>
+
+                                <td>
+                                    {user.qualities.map(quality => (
+                                            <span
+                                                className={`badge bg-${quality.color} m-1`}
+                                                key={user._id + quality._id}
+                                            >
+                                        {quality.name}
+                                    </span>)
+                                    )}
+                                </td>
+
+                                <td>{user.profession.name}</td>
+                                <td>{user.completedMeetings}</td>
+                                <td>{user.rate}/5</td>
+
+                                <td>
+                                    <button
+                                        className="btn btn-danger"
+                                        onClick={() => handleDelete(user._id)}
+                                    >
+                                        Удалить
+                                    </button>
+                                </td>
+                            </tr>
+                        )
+                    })}
+                    </tbody>
+                </table>
+            }
         </>
     );
 };
