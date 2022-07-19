@@ -1,18 +1,18 @@
-import React from 'react';
-import Qualitie from './qualitie';
-import BookMark from './bookmark';
+import React from "react";
+import Qualitie from "./qualitie";
+import BookMark from "./bookmark";
 
 const User = ({
-                  _id,
-                  name,
-                  qualities,
-                  profession,
-                  completedMeetings,
-                  rate,
-                  onDelete,
-                  bookmark,
-                  onToggleBookMark,
-              }) => {
+    _id,
+    name,
+    qualities,
+    profession,
+    completedMeetings,
+    rate,
+    onDelete,
+    bookmark,
+    onToggleBookMark,
+}) => {
     return (
         <tr>
             <td>{name}</td>
