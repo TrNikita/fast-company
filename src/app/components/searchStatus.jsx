@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const SearchStatus = ({ length }) => {
+const SearchStatus = ({length}) => {
     const peopleCount = (length) => {
-        if (length === 0) return `Никто с тобой не тусанет`;
+        if (length === 0) return 'Никто с тобой не тусанет';
         if (
             length % 10 >= 2 &&
             length % 10 <= 4 &&
@@ -16,7 +17,7 @@ const SearchStatus = ({ length }) => {
         <h2>
             <span
                 className={
-                    length !== 0 ? "badge bg-primary" : "badge bg-danger"
+                    length !== 0 ? 'badge bg-primary' : 'badge bg-danger'
                 }
             >
                 {peopleCount(length)}
@@ -24,4 +25,9 @@ const SearchStatus = ({ length }) => {
         </h2>
     );
 };
+
+SearchStatus.propTypes = {
+    length: PropTypes.number.isRequired,
+};
+
 export default SearchStatus;

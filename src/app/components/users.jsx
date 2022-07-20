@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import User from "./user";
-import Pagination from "./pagination";
-import { paginate } from "../utils/paginate";
+import React, {useState} from 'react';
+import User from './user';
+import Pagination from './pagination';
+import {paginate} from '../utils/paginate';
+import PropTypes from 'prop-types';
 
-const Users = ({ users, ...rest }) => {
+const Users = ({users, ...rest}) => {
     const count = users.length;
     const pageSize = 4;
     const [currentPage, setCurrentPage] = useState(1);
@@ -17,21 +18,21 @@ const Users = ({ users, ...rest }) => {
     return (
         <>
             {users.length > 0 && (
-                <table className="table table-striped table-hover text-center">
+                <table className='table table-striped table-hover text-center'>
                     <thead>
                         <tr>
                             {[
-                                "Имя",
-                                "Качества",
-                                "Профессия",
-                                "Встретился, раз",
-                                "Оценка",
-                                "Избранное",
-                                "",
+                                'Имя',
+                                'Качества',
+                                'Профессия',
+                                'Встретился, раз',
+                                'Оценка',
+                                'Избранное',
+                                '',
                             ].map((i) => (
-                                <th scope="col" key={i}>
-                                    {" "}
-                                    {i}{" "}
+                                <th scope='col' key={i}>
+                                    {' '}
+                                    {i}{' '}
                                 </th>
                             ))}
                         </tr>
@@ -53,6 +54,10 @@ const Users = ({ users, ...rest }) => {
             />
         </>
     );
+};
+
+Users.propTypes = {
+    users: PropTypes.array.isRequired,
 };
 
 export default Users;
