@@ -3,6 +3,7 @@ import User from './user';
 import Pagination from './pagination';
 import {paginate} from '../utils/paginate';
 import PropTypes from 'prop-types';
+import GroupList from './groupList';
 
 const Users = ({users, ...rest}) => {
     const count = users.length;
@@ -17,6 +18,8 @@ const Users = ({users, ...rest}) => {
 
     return (
         <>
+            <GroupList/>
+
             {users.length > 0 && (
                 <table className='table table-striped table-hover text-center'>
                     <thead>
